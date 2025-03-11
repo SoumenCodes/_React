@@ -1,8 +1,6 @@
 @echo off
-:: SYSTEM account needs explicit paths
-set PYTHON=C:\Program Files\Python312\python.exe
-set GIT=C:\Program Files\Git\bin\git.exe
-set REPO=C:\D Drive\auto-commits
-
-cd /d "%REPO%"
-"%PYTHON%" "%REPO%\auto_commit.py"
+:: Full paths prevent errors
+"C:\Users\ckryo\AppData\Local\Programs\Python\Python313\python.exe" "C:\D Drive\auto-commits\auto_commit.py"
+if %errorlevel% neq 0 (
+    echo [FAILED] %date% %time% >> "C:\D Drive\auto-commits\log.txt"
+)
